@@ -1,6 +1,6 @@
 # 🌊 Sea Level Prediction with Machine Learning
 
-Forecasting long-term sea level trends using NOAA tide gauge data and Facebook's **Prophet** time series model — built as a Google Colab notebook that anyone can adapt to their own coastal station.
+Forecasting long-term sea level trends using NOAA tide gauge data and Meta's **Prophet** time series model. This model is built as a Google Colab notebook that anyone can adapt to their own coastal station.
 
 ## Overview
 
@@ -8,21 +8,23 @@ Coastal communities need reliable, forward-looking estimates of sea level rise t
 
 This repo currently uses **Montauk, NY** as the reference station, with monthly MSL data spanning **1947–2026**, but the notebook is written so any NOAA station with a long enough record (100+ years recommended) can be swapped in.
 
+As a Long Islander, I believe it is important for us to integrate the growing capabilities of artificial intelligence into the scientific commmuntiy to help us as a community prepare and search for solutions to the onset of climate change. We live in a very flood-prone area, with erosion being a top concern for communities such as the one I come from. I believe models, like the one I've created allow us to better understand the effects of rising sea levels in our home town, and believe that this model can be used elsewhere to help other communities adapt to the incoming changes to our coastal landscapes.
+
 ## Why Prophet?
 
 Prophet (developed by Meta) is well-suited to this problem because sea level data is:
-- **Trending** — sea levels are rising over the long term, not stationary
-- **Seasonal** — there's a repeating annual cycle layered on top of the trend
-- **Noisy** — short-term fluctuations (storms, currents, measurement variance) obscure the signal
+- **Trending** : sea levels are rising over the long term around the globe.
+- **Seasonal** : there's a repeating annual cycle layered on top of the trend
+- **Noisy** : short-term fluctuations (storms, currents, measurement variance) obscure the signal
 
-Prophet decomposes the series into trend + seasonality + noise automatically and produces uncertainty intervals alongside its point forecasts, which makes it easy to communicate *how confident* a projection is — not just what it predicts.
+Prophet decomposes the series into trend + seasonality + noise automatically and produces uncertainty intervals alongside its point forecasts, which makes it easy to communicate *how confident* a projection is rather than what it predicts.
 
 ## What's in this repo
 
 | File | Description |
 |---|---|
 | `sea_level_prediction.ipynb` | The full Colab notebook: data loading, preprocessing, visualization, train/test split, Prophet model training, evaluation, and long-range (2100) forecasting |
-| `sea_level_prediction.csv` *(user-supplied)* | Cleaned NOAA station export — not included in this repo; see setup below |
+| `sea_level_prediction.csv` | Cleaned NOAA station data sheet export |
 | `ANALYSIS.md` | Write-up of the modeling approach, results, and interpretation |
 
 ## Pipeline
@@ -43,8 +45,6 @@ Prophet decomposes the series into trend + seasonality + noise automatically and
 4. **Set up Drive** — Create a folder named `sea_level_prediction` in your Google Drive, and upload both the notebook and the CSV into it.
 5. **Run it** — Open the notebook in Colab, run the *Importing Libraries* cell first, then work through the notebook top to bottom.
 
-> Full step-by-step instructions (with screenshots) are in the companion Science Buddies procedure this project is based on.
-
 ## Key results (Montauk station)
 
 - **MAE:** ~0.041 m — on average, forecasts differ from actual monthly sea level by about 4 cm
@@ -62,10 +62,9 @@ The notebook is set up to make it easy to test:
 
 ## Limitations
 
-- Prophet is a statistical trend/seasonality model — it doesn't know about physical processes like ice sheet dynamics, thermal expansion, or land subsidence, so long-range (2100) forecasts should be treated as an extrapolation, not a physical simulation.
+- Prophet is a statistical trend/seasonality model — it doesn't know about physical processes like ice sheet dynamics, thermal expansion, or land subsidence, so long-range (2100) forecasts should be treated as an extrapolation rather than a physical simulation.
 - Longer historical records tend to produce more stable long-term trend estimates, but may under-weight recent acceleration in sea level rise.
 - Regional NOAA scenarios (which incorporate physical climate models) are a better source for planning-grade projections; this model is best used as a data science exercise and a first-pass comparison point.
 
 ## Acknowledgments
-
-Project structure and procedure adapted from [Science Buddies: "Can Machine Learning Forecast Future Sea Levels?"](https://www.sciencebuddies.org/science-fair-projects/project-ideas/ArtificialIntelligence_p031/artificial-intelligence/sea_level). Data sourced from NOAA Tides & Currents.
+Data sourced from NOAA Tides & Currents.
