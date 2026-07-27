@@ -55,8 +55,8 @@ Working on this project drew directly on research practices developed during my 
 
 - **Rigorous train/test methodology** : treating historical hold-out validation as non-negotiable before trusting a model's forward-looking output, the same way you wouldn't trust a physical model's predictions without validating it against known data.
 - **Quantifying uncertainty, not just producing a point estimate** : reporting error metrics (MAE, SMAPE) and uncertainty intervals alongside the forecast itself, so the result is honest about its own limitations rather than presented as a single "answer."
-- **Reproducibility** — building the pipeline as a documented, re-runnable notebook (rather than one-off analysis) so someone else, such as a classmate, a community member, a local planning board, can plug in their own station's data and get a trustworthy result without needing to understand the underlying statistics.
-- **Pandas, Numpy, and other Python Coding skills**: Utilized the fundamental coding libraries of Python and the analytical regression skills taught at BNL, and how to analyze data visually and comparatively through code.
+- **Reproducibility** : building the pipeline as a documented, re-runnable notebook (rather than one-off analysis) so someone else, such as a classmate, a community member, a local planning board, can plug in their own station's data and get a trustworthy result without needing to understand the underlying statistics.
+- **Pandas, Numpy, and other Python Coding skills** : Utilized the fundamental coding libraries of Python and the analytical regression skills taught at BNL, and how to analyze data visually and comparatively through code.
 
 The intent behind open-sourcing this project is to make that same rigor available to non-specialists such as, local communities, students, or civic groups, who want a data-backed starting point for thinking about sea level rise in their area, without needing access to a national lab's modeling infrastructure. Anyone can fork this repo, swap in their own NOAA station, and get a station-specific forecast with honest error bars in under an hour.
 
